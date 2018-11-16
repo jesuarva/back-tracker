@@ -13,6 +13,7 @@
   "dependencies": {
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
+    "express-router-factory": "^1.1.0",
     "helmet": "^3.15.0",
     "mongoose": "^5.3.12"
   },

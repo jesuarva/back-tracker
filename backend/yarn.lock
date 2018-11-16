@@ -486,6 +486,10 @@ expect-ct@0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/expect-ct/-/expect-ct-0.1.1.tgz#de84476a2dbcb85000d5903737e9bc8a5ba7b897"
 
+express-router-factory@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/express-router-factory/-/express-router-factory-1.1.0.tgz#e005247c2857c14095b95bc908e0fdd5cd86a3c3"
+
 express@^4.16.4:
   version "4.16.4"
   resolved "https://registry.yarnpkg.com/express/-/express-4.16.4.tgz#fddef61926109e24c515ea97fd2f1bdbf62df12e"
