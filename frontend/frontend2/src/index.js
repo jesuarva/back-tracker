@@ -7,10 +7,11 @@ import App from './components/App/App';
 import './index.css';
 import reducers from './reducers/index';
 import * as serviceWorker from './serviceWorker';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
-const store = createStore(reducers, applyMiddleware());
-store.dispatch({ type: 'ADD_DATA' });
-console.log(store.getState());
+const store = createStore(reducers, applyMiddleware(thunk, logger));
+store.dispatch({ type: 'ADD_DATA', data: 'hola' });
 
 ReactDOM.render(
   <Provider store={store}>
