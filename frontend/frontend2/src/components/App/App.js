@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import logo from '../../staticFiles/logo.svg';
 import './App.css';
+import { connect } from 'react-redux';
+import { fetchingItems } from '../../actions/actionCreators';
 
 class App extends Component {
+  componentDidMount() {
+    const { fetchingItems } = this.props;
+    fetchingItems();
+  }
+
   render() {
     return (
       <div className="App">
@@ -25,4 +32,9 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  () => {
+    return {};
+  },
+  { fetchingItems },
+)(App);
