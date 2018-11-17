@@ -29,7 +29,7 @@ export default class Example extends React.Component {
   }
   render() {
     return (
-      <div className="fixed-top">
+      <div className="">
         <Navbar color="light" light expand="md">
           <NavbarBrand href="/">Passenger Bags</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
