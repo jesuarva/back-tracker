@@ -8,6 +8,7 @@ import NavBar from '../NavBar/NavBar';
 import List from '../List/List';
 import Footer from '../Footer/Footer';
 import Terms from '../Terms/Terms';
+import NewEntry from '../NewEntry/NewEntry';
 
 class App extends Component {
   componentDidMount() {
@@ -20,7 +21,7 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route path="/new" component={null} />
+          <Route path="/new" component={NewEntry} />
           <Route path="/term" component={Terms} />
           <Route exact path="/" component={List} />
         </Switch>
