@@ -4,6 +4,8 @@ const initialState = {
   error: null,
   fetching_data: false,
   fetched_data: false,
+  adding_item: false,
+  added_item: false,
 };
 
 export default (state = initialState, action) => {
@@ -30,6 +32,10 @@ export default (state = initialState, action) => {
         fetched_data: true,
         error: null,
       };
+    case A.ADDING_ITEM:
+      return { ...state, adding_item: true, added_item: false, error: null };
+    case A.ADDED_ITEM:
+      return { ...state, adding_item: false, added_item: true, error: null };
     default:
       return state;
   }
