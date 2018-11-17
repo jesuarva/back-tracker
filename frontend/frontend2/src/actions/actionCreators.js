@@ -21,12 +21,42 @@ export const fetchingItems = () => {
         return response.data['Document(s) in database'];
       })
       .then((data) => {
-        console.log(data);
         dispatch({
           type: A.ADD_DATA,
           data,
         });
       })
       .catch((e) => console.log('error', e));
+  };
+};
+
+export const addingItem = (newItem) => {
+  // console.log(newItem);
+  const addItem = axios.post(URL, newItem);
+  return (dispatch) => {
+    dispatch({
+      type: A.ADDING_ITEM,
+      newItem: newItem,
+    });
+    addItem
+      .then((response) => {
+        console.log('POST response.data', response.data);
+        console.log(response.data['Document(s) created']);
+        // console.log("newItem", newItem);
+        dispatch({
+          type: A.ADDED_ITEM,
+        });
+        return response.data['Document(s) created'];
+      })
+      .then((data) => {
+        dispatch({
+          type: A.ADD_DATA,
+          data,
+        });
+      })
+      .catch((e) => {
+        console.log('error', e);
+        dispatch(errorAction(e));
+      });
   };
 };
