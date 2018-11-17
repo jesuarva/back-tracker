@@ -30,6 +30,10 @@ export const fetchingItems = () => {
   };
 };
 
+/**
+ * This acton creator is connecting and creating a new document in the DataBase
+ * but is no properly dispatching the 'actions' - I couldn't find the issue
+ */
 export const addingItem = (newItem) => {
   console.log(newItem);
   const addItem = axios.post(DATA_URL, newItem);
@@ -38,6 +42,7 @@ export const addingItem = (newItem) => {
       type: A.ADDING_ITEM,
     });
     addItem
+      // Its no reaching this then
       .then((response) => {
         console.log('POST response.data', response.data);
         console.log(response.data['Document(s) created']);

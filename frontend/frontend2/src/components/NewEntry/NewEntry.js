@@ -17,8 +17,12 @@ class NewEntry extends Component {
   }
 
   handleClick() {
-    console.log('HANDLE CLICK');
-    addingItem({ name: 'jean Ariza', email: 'jean@jean5.com', bags: 4 });
+    addingItem(this.state);
+    /**
+     * DEBUGGING
+     * The actionCreator is posting to server and creating a new document, but is not dispatching the actions.
+     */
+    // addingItem({ name: 'jean Ariza', email: 'jean@jean.com', bags: 4 });
   }
 
   handleChange(event) {
