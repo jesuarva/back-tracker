@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import logo from '../../staticFiles/logo.svg';
+import { Route, Switch } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './App.css';
 import { connect } from 'react-redux';
 import { fetchingItems } from '../../actions/actionCreators';
+import NavBar from '../NavBar/NavBar';
+import List from '../List/List';
+import Footer from '../Footer/Footer';
+import Terms from '../Terms/Terms';
 
 class App extends Component {
   componentDidMount() {
@@ -13,28 +18,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <NavBar />
+        <Switch>
+          <Route path="/new" component={null} />
+          <Route path="/term" component={Terms} />
+          <Route exact path="/" component={List} />
+        </Switch>
+        <Footer />
       </div>
     );
   }
 }
 
-export default connect(
-  () => {
-    return {};
-  },
-  { fetchingItems },
-)(App);
+export default withRouter(
+  connect(
+    () => {
+      return {};
+    },
+    { fetchingItems },
+  )(App),
+);
