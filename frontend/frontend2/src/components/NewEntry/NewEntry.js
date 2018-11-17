@@ -19,6 +19,7 @@ class NewEntry extends Component {
   }
 
   handleClick() {
+    const { addingItem } = this.props;
     addingItem(this.state);
     /**
      * DEBUGGING
@@ -49,6 +50,11 @@ class NewEntry extends Component {
   }
 }
 
-export default connect(() => {
-  return {}, { addingItem };
-})(NewEntry);
+const mapStateToProps = (state) => {
+  return {};
+};
+
+export default connect(
+  mapStateToProps,
+  { addingItem, fetchingItems },
+)(NewEntry);

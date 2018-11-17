@@ -35,7 +35,6 @@ export const fetchingItems = () => {
  * but is no properly dispatching the 'actions' - I couldn't find the issue
  */
 export const addingItem = (newItem) => {
-  console.log(newItem);
   const addItem = axios.post(DATA_URL, newItem);
   return (dispatch) => {
     dispatch({
@@ -44,16 +43,12 @@ export const addingItem = (newItem) => {
     addItem
       // Its no reaching this then
       .then((response) => {
-        console.log('POST response.data', response.data);
-        console.log(response.data['Document(s) created']);
-        console.log('newItem', newItem);
         dispatch({
           type: A.ADDED_ITEM,
         });
         return response.data['Document(s) created'];
       })
       .then((data) => {
-        console.log(data);
         dispatch({
           type: A.ADD_DATA,
           data,
