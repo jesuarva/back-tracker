@@ -8,6 +8,8 @@
 > Run server
 > yarn startWatch
 
+Models routes were implemented with an NPM library I wrote [express-router-factory](https://www.npmjs.com/package/express-router-factory)
+
 ## frontend APP
 
 from the root folder:
