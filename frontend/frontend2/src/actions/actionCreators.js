@@ -1,7 +1,7 @@
 import * as A from './actionTypes';
 import axios from 'axios';
 
-const DATA_URL = process.env.REACT_APP_API;
+const DATA_URL = process.env.REACT_APP_API || '/person-bags';
 
 const errorAction = (error) => {
   return {
@@ -18,9 +18,10 @@ export const fetchingItems = () => {
     fetching
       .then((response) => {
         dispatch({ type: A.FETCHED_DATA });
-        return response.data;
+        return response.data['Document(s) in database'];
       })
       .then((data) => {
+        console.log(data);
         dispatch({
           type: A.ADD_DATA,
           data,
