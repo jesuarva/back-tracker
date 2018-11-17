@@ -14,6 +14,8 @@ class NewEntry extends Component {
       bags: 0,
       email: '',
     };
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleClick() {
@@ -27,8 +29,7 @@ class NewEntry extends Component {
 
   handleChange(event) {
     event.stopPropagation();
-    console.log(event.target.id, this.state);
-    // this.setState({ [event.target.id]: event.target.value });
+    this.setState({ [event.target.id]: event.target.value });
   }
 
   render() {
