@@ -17,7 +17,8 @@ class NewEntry extends Component {
   }
 
   handleClick() {
-    addingItem(this.state);
+    console.log('HANDLE CLICK');
+    addingItem({ name: 'jean Ariza', email: 'jean@jean5.com', bags: 4 });
   }
 
   handleChange(event) {
