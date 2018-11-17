@@ -18,7 +18,7 @@ from the root folder:
 > Run APP
 > yarn start
 
-## I missed time due to 2 big issue I face:
+## Some issues slow me down:
 
 1. The APP was no reaching the server via HTTP responses -> I had to start from the base up again (This new attempt worked)
 2. Component 'NewItem' is not recognizing 'this.state' -> I properly can't find the bug.
