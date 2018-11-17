@@ -11,7 +11,6 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 const store = createStore(reducers, applyMiddleware(thunk, logger));
-store.dispatch({ type: 'ADD_DATA', data: 'hola' });
 
 ReactDOM.render(
   <Provider store={store}>
