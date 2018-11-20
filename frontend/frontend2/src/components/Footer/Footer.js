@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -27,12 +28,16 @@ export default class Example extends React.Component {
     return (
       <div className="fixed-bottom">
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/terms">Terms and coditions</NavbarBrand>
+          <NavbarBrand tag={Link} to="/terms">
+            Terms and coditions
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/contact">Contact</NavLink>
+                <NavLink tag={Link} to="/contact">
+                  Contact
+                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>
