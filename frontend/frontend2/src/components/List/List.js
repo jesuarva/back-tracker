@@ -8,7 +8,10 @@ const List = ({ data }) => {
     <div className="container">
       <div className="row">
         {data.map((d, i) => (
-          <ListDetails key={Math.random() + Date.now()} details={d} />
+          <ListDetails
+            key={Math.random(Math.random()) + Date.now()}
+            details={d}
+          />
         ))}
       </div>
     </div>
