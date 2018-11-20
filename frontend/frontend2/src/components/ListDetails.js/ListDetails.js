@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 
 const ListDetails = ({ details }) => {
-  console.log(details);
   const { name, email, bags } = details;
   name.toLowerCase();
 
