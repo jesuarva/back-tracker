@@ -3,10 +3,11 @@ import { Route, Switch } from 'react-router-dom';
 import List from '../List/List';
 import Terms from '../Terms/Terms';
 import NewEntry from '../NewEntry/NewEntry';
+import './MainContent.css';
 
 const MainContent = () => {
   return (
-    <div>
+    <div className="main-content">
       <Switch>
         <Route path="/new" component={NewEntry} />
         <Route path="/term" component={Terms} />
