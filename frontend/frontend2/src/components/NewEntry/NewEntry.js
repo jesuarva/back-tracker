@@ -13,9 +13,14 @@ class NewEntry extends Component {
       name: '',
       bags: 0,
       email: '',
+      classes: {
+        name: '', // '' || valid' || 'no-valid'
+        email: '', // '' || valid' || 'no-valid'
+      },
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.validateInput = this.validateInput.bind(this);
   }
 
   handleClick() {
@@ -25,22 +30,42 @@ class NewEntry extends Component {
 
   handleChange(event) {
     event.stopPropagation();
-    this.setState({ [event.target.id]: event.target.value });
+
+    const { id, value } = event.target;
+
+    const validationClass = this.validateInput(id, value)
+      ? 'valid'
+      : 'no-valid';
+
+    const newClasses = { ...this.state.classes, [id]: validationClass };
+
+    this.setState({ [id]: value, classes: newClasses });
+  }
+
+  validateInput(field, value) {
+    return {
+      email: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(
+        value,
+      ),
+      name: /^[A-Za-z]+\s{1}[A-Za-z]+/.test(value),
+    }[field];
   }
 
   render() {
-    const { name, email } = this.state;
+    const { name, email, classes } = this.state;
 
     return (
-      <Form onChange={this.handleChange}>
-        <Inputs name={name} email={email} />
-        <BagSelector value={this.state.bags} />
-        <Button
-          text="Create new"
-          data={this.state}
-          handleClick={this.handleClick}
-        />
-      </Form>
+      <div className="container">
+        <Form onChange={this.handleChange}>
+          <Inputs name={name} email={email} classes={classes} />
+          <BagSelector value={this.state.bags} />
+          <Button
+            text="Create new"
+            data={this.state}
+            handleClick={this.handleClick}
+          />
+        </Form>
+      </div>
     );
   }
 }
