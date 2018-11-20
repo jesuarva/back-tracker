@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ListDetails from '../ListDetails.js/ListDetails';
 
@@ -24,9 +23,7 @@ const mapStatToProps = (state) => {
   };
 };
 
-export default withRouter(
-  connect(
-    mapStatToProps,
-    {},
-  )(List),
-);
+export default connect(
+  mapStatToProps,
+  {},
+)(List);
