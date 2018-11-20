@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form } from 'reactstrap';
 import BagSelector from './BagSelector/BagSelector';
 import { addingItem } from '../../actions/actionCreators';
 import Inputs from './Inputs/Inputs';
 import Button from './Button/Button';
+import './NewEntry.css';
 
 class NewEntry extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      bags: 0,
+      bags: 1,
       email: '',
       classes: {
         name: '', // '' || valid' || 'no-valid'
@@ -22,6 +22,7 @@ class NewEntry extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.validateInput = this.validateInput.bind(this);
+    this.updateBags = this.updateBags.bind(this);
   }
 
   handleClick() {
@@ -33,10 +34,13 @@ class NewEntry extends Component {
     event.stopPropagation();
 
     const { id, value } = event.target;
+    let validationClass;
 
-    const validationClass = this.validateInput(id, value)
-      ? 'valid'
-      : 'no-valid';
+    if (value === '') {
+      validationClass = '';
+    } else {
+      validationClass = this.validateInput(id, value) ? 'valid' : 'no-valid';
+    }
 
     const newClasses = { ...this.state.classes, [id]: validationClass };
 
@@ -57,21 +61,26 @@ class NewEntry extends Component {
     }[field];
   }
 
+  updateBags(value) {
+    this.setState({ bags: value });
+  }
+
   render() {
     const { name, email, classes, buttonActive } = this.state;
 
     return (
-      <div className="container">
-        <Form onChange={this.handleChange}>
+      <div className="new-entry">
+        <h1>Add new passenger and bags</h1>
+        <form onChange={this.handleChange}>
           <Inputs name={name} email={email} classes={classes} />
-          <BagSelector value={this.state.bags} />
+          <BagSelector value={this.state.bags} updateBags={this.updateBags} />
           <Button
             text="Create new"
             data={this.state}
             buttonActive={buttonActive}
             handleClick={this.handleClick}
           />
-        </Form>
+        </form>
       </div>
     );
   }
