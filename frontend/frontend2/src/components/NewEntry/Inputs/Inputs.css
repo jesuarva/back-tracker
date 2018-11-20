@@ -4,3 +4,11 @@
   padding: 0 9px;
   outline: none;
 }
+
+.valid {
+  outline: 1px solid lightgreen;
+}
+
+.no-valid {
+  outline: 1px solid lightsalmon;
+}

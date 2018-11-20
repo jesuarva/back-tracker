@@ -1,11 +1,12 @@
 import React from 'react';
+import './Inputs.css';
 
-const Inputs = ({ name, email }) => {
+const Inputs = ({ name, email, classes }) => {
   return (
     <div>
       <input
         id="name"
-        className="custom-input"
+        className={`custom-input ${classes.name}`}
         type="text"
         name="name"
         placeholder="Name"
@@ -13,7 +14,7 @@ const Inputs = ({ name, email }) => {
       />
       <input
         id="email"
-        className="custom-input"
+        className={`custom-input ${classes.email}`}
         type="text"
         name="email"
         placeholder="email"
