@@ -17,6 +17,7 @@ class NewEntry extends Component {
         name: '', // '' || valid' || 'no-valid'
         email: '', // '' || valid' || 'no-valid'
       },
+      butonActive: false,
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -39,7 +40,12 @@ class NewEntry extends Component {
 
     const newClasses = { ...this.state.classes, [id]: validationClass };
 
-    this.setState({ [id]: value, classes: newClasses });
+    const buttonActive =
+      newClasses.name === 'valid' && newClasses.email === 'valid'
+        ? true
+        : false;
+
+    this.setState({ [id]: value, classes: newClasses, buttonActive });
   }
 
   validateInput(field, value) {
@@ -52,7 +58,7 @@ class NewEntry extends Component {
   }
 
   render() {
-    const { name, email, classes } = this.state;
+    const { name, email, classes, buttonActive } = this.state;
 
     return (
       <div className="container">
@@ -62,6 +68,7 @@ class NewEntry extends Component {
           <Button
             text="Create new"
             data={this.state}
+            buttonActive={buttonActive}
             handleClick={this.handleClick}
           />
         </Form>
