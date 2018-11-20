@@ -1,10 +1,10 @@
 .custom-button {
   color: white;
   background-color: darkgreen;
-  max-width: 219.68px;
+  min-width: 20vmin;
   height: 50px;
-  margin-bottom: 1.2rem;
-  border: 1.5px solid darkgray;
+  margin: 10px;
+  /* border: 1.5px solid darkgray; */
   line-height: 3rem;
   letter-spacing: 0.05rem;
   font-weight: bold;

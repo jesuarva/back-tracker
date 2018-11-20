@@ -1,0 +1,11 @@
+.new-entry {
+  max-width: 70vw;
+  margin: 20px auto;
+}
+
+.new-entry form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
