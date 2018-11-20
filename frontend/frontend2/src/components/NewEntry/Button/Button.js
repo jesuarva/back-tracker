@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Button.css';
 
-const Button = ({ text, data, handleClick, buttonActive }) => {
+const Button = ({ text, handleClick, buttonActive }) => {
   // const {text} = props;
   const clickHandler = buttonActive
     ? handleClick
