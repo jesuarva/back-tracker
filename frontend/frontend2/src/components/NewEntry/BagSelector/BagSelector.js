@@ -1,21 +1,34 @@
 import React from 'react';
-import { FormGroup, Label, Input } from 'reactstrap';
+import './BagSelector.css';
 
-export default class Example extends React.Component {
+export default class BagSelector extends React.Component {
+  bagsUnitHandler = (e) => {
+    e.stopPropagation();
+    const { id } = e.target;
+    const { value, updateBags } = this.props;
+
+    switch (id) {
+      case 'substract':
+        value > 1 && updateBags(value - 1);
+        break;
+      case 'add':
+        value < 5 && updateBags(value + 1);
+        break;
+      default:
+    }
+  };
+
   render() {
     const { value } = this.props;
     return (
-      <FormGroup>
-        <Label for="bags">Select</Label>
-        <Input type="select" name="bags" id="bags" value={value}>
-          <option>0</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </Input>
-      </FormGroup>
+      <div className="bag-selector">
+        <h3>BAGS</h3>
+        <div className="bag-controller" onClick={this.bagsUnitHandler}>
+          <span id="substract">-</span>
+          {value}
+          <span id="add">+</span>
+        </div>
+      </div>
     );
   }
 }

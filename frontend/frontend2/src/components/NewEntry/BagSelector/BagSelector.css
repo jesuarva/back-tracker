@@ -1,0 +1,20 @@
+.bag-selector {
+  /* display: flex; */
+}
+
+.bag-controller {
+  font-size: 2rem;
+}
+
+.bag-controller span {
+  display: inline-block;
+  height: 3rem;
+  width: 3rem;
+  margin: 0 15px;
+  border-radius: 1.5rem;
+  user-select: none;
+  cursor: pointer;
+  color: darkgreen;
+  background-color: antiquewhite;
+
+}
