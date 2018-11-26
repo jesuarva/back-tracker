@@ -19,11 +19,3 @@ from the root folder:
 > yarn
 > Run APP
 > yarn start
-
-## Some issues slow me down:
-
-1. The APP was no reaching the server via HTTP calls, I'm used to setup a 'proxy' in the frontend/package.json. -> I had to start from the base up again (This new attempt worked)
-2. Component 'NewItem' is not recognizing 'this.state' -> I properly can't find the bug. (FIXED OUT OF TIME! I was missing binding this to handlers)
-3. An action creator 'addingItems' can post to server DB and there create a new mongoose Document, but is not dispatching the actions as expected. (FIXED OUT OF TIME! I was not calling the action creator from 'this.props')
-
-This issues slow me down, I was no able to implement test for the backend and fronten.
