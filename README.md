@@ -3,9 +3,13 @@
 ## backend server
 
 > cd backend/
-> Install dependencies
+
+Install dependencies
+
 > yarn
-> Run server
+
+Run server
+
 > yarn startWatch
 
 Models routes were implemented with an NPM library I wrote [express-router-factory](https://www.npmjs.com/package/express-router-factory)
@@ -15,7 +19,11 @@ Models routes were implemented with an NPM library I wrote [express-router-facto
 from the root folder:
 
 > cd frontend/frontend2/
-> Install dependencies
+
+Install dependencies
+
 > yarn
-> Run APP
+
+Run APP
+
 > yarn start
